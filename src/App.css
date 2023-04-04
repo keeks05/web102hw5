@@ -1,72 +1,49 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-.left {
-   height: 100%;
-   width: 15%;
-   position: fixed;
-   top: 0;
-   left: 0;
-   bottom: 0;
-   background-color: #232323;
-   padding-top: 15px;
-   padding-bottom: 15px;
+/* Insert CSS for the App */
+.App {
+   font-family:Avenir, "Century Gothic", sans-serif;
+   font-weight:100; 
+   font-style:normal;
+   font-size: calc(10px + 2vmin);
+   color: white;
+   justify-content: center;
    display: flex;
    flex-direction: column;
-   align-items: center;
-   color: lightslategray;
-}
-
-.card-container {
-   display: flex;
-   flex-direction: row;
-   height: fit-content;
-   
-}
- .name, .location, .website {
-   background-color: lightslategray;
-   margin: 30px;
-   padding: 30px;
-   border-radius: 15px;
-   height: 125px;
-   width: 200px;
+   margin-top: 40px;
+   margin-bottom: 60px;
  }
  
-
- .main-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+ .App-sidebar{
+   height: 100%;
+   width: 250px;
+   position: fixed;
+   top: 0;
+   left:0;
+   overflow-x: hidden;
+   backdrop-filter: blur(1px);
+   background-color: rgba(255, 255, 255, 0.1);
+   padding-left: 20px;
  }
-
- .brew-list {
-    margin: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: lightslategrey;
-    border-radius: 5%;
-    width: 1000px;
+ .App-page {
+   top: 0;
+ 
+   padding-left:300px;
+ 
  }
-
- .brew-list, * {
-   margin: 10px;
+ 
+ .App-row {
+   display: flex;
+   flex-direction: row;
+   gap: 10px 20px;
+   padding-right:40px;
+   align-items: center;
+ 
  }
-
- .name-list, .type-list {
-    margin: 15px;
+ 
+ 
+ .container {
+   display: flex;
+   flex-direction: row wrap;
+   align-items: center; 
+   
  }
+ 

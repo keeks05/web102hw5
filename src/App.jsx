@@ -1,124 +1,54 @@
-import { useState, useEffect } from 'react'
-import Card from "../Components/Card"
-import './App.css'
+import './App.css';
+import React, { useState, useEffect } from 'react';
+import Header from './components/Header';
+import Menu from './components/Menu';
+import Dashboard from './pages/Dashboard'
 
-function App() {
-  const [listBrew, setListBrew] = useState(null)
-  const [brew, setBrew] = useState(null);
 
-  const [filteredResults, setFilteredResults] = useState([]);
-  const [searchInput, setSearchInput] = useState("");
+const App = () => {
 
-  const searchItems = searchValue => {
-     setSearchInput(searchValue);
-
-  }
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    const fetchBrewData = async () => {
-      const response = await fetch (
-        "https://api.openbrewerydb.org/v1/breweries?per_page=20"
-      );
-      const json = await response.json();
-      setListBrew(json);
-      setBrew(json[0])
-    };
 
-    fetchBrewData().catch(console.error);
+    // declare the async data fetching function
+    const fetchData = async () => {
+
+      // Construct URL
+      const location = 'New York, NY';
+      const API_KEY = '3C3DR7FPTDDTCSHRPTT4VBCZP';
+      const options = '&include=days&elements=id,temp,feelslikemin,tempmin,datetime,moonphase,sunrise,sunset,moonrise,moonset,description,visibility,conditions'
+      const url = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'+ location + '?key='+ API_KEY + options;
+      // Makes the API call
+      const response = await fetch(url);
+      const json = await response.json();
+
+      // Sets data to 'days' array from JSON
+      setData(json.days);
+
+      // return API data
+      return json;
+    }
+
+    // calls function
+    fetchData()
+
   }, []);
 
 
-  console.log(listBrew)
-  return (
-    <div className="whole-page">
-      <div className="left">
-         <h2> 🍻 BrewDash</h2>
-         <div className="nav">
-            <h3> 🤌 Dashboard</h3>
-            <h3> ✔️ Search</h3>
-            <h3> 🔰 About</h3>
-         </div>
-      </div>
-      <div className="main-content">
-         {brew && <Card brew={brew}/>}
+  return ( 
 
-         <div className="search">
-            <label>State
-            <input
-               type="text"
-               placeholder="state"
-               
-               />
-            </label>
-            <label>Type
-            <input
-               type="text"
-               placeholder="type"
-               
-               />
-            </label>
-
-               <button>Search</button>
-         </div>
-         <div className="brew-list">
-            <div className="name-list">
-               <h6>Name</h6>
-               {listBrew && listBrew.map((brew) => 
-               <div>
-                  {brew.name}
-               </div>
-                  )
-               }
-            </div>
-            <div className="type-list">
-               <h6>Brewery Type</h6>
-               {listBrew && listBrew.map((brew) => 
-               <div>
-                  {brew.brewery_type}
-               </div>
-                  )
-               }
-            </div>
-            <div className="postal-list">
-               <h6>Postal Code</h6>
-               {listBrew && listBrew.map((brew) => 
-               <div>
-                  {brew.postal_code}
-               </div>
-                  )
-               }
-            </div>
-            <div className="type-list">
-               <h6>State</h6>
-               {listBrew && listBrew.map((brew) => 
-               <div>
-                  {brew.state}
-               </div>
-                  )
-               }
-            </div>
-            <div className="city-list">
-               <h6>City</h6>
-               {listBrew && listBrew.map((brew) => 
-               <div>
-                  {brew.city}
-               </div>
-                  )
-               }
-            </div>
-            <div className="country-list">
-               <h6>Country</h6>
-               {listBrew && listBrew.map((brew) => 
-               <div>
-                  {brew.country}
-               </div>
-                  )
-               }
-            </div>
-         </div>
+    <div className="App">
+      <div className="App-sidebar">
+        <Header />
+        <Menu />
       </div>
+
+      <Dashboard data={data}/>
+      
     </div>
-  )
+
+  );
 }
 
-export default App
+export default App;

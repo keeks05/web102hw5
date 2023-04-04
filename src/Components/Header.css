@@ -1,0 +1,7 @@
+ /* Insert CSS for Header Component */
+
+.Header {
+   display: flex;
+   flex-direction: row;
+   padding-top: 10px;
+}
