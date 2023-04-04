@@ -1,7 +1,6 @@
 import React from 'react';
 import Card from '../components/Card';
 import List from '../components/List';
-// import Graph from '../Components/Graph'
 
 
 const Dashboard = ({data}) => {
@@ -15,7 +14,6 @@ const Dashboard = ({data}) => {
             </div>
             <div className="App-row">
                 <List data={data}/>
-               
             </div>
         </div>  
     )
