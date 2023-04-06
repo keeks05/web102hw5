@@ -23,32 +23,6 @@ const List = (props) => {
      setFilteredData(filterByPhase);
      
    }
-   
-   
-   // Stretch Challenge: Additional Parsing
-   const moonEmoji = (moonphase) => {
-      
-      if (moonphase === 0) {
-         return '🌑';
-      } else if (moonphase < 0.25){
-         return '🌒';
-      } else if (moonphase === 0.25){
-         return '🌓';
-      } else if (moonphase < 0.5){
-         return '🌔';
-      } else if (moonphase === 0.5){
-         return '🌕';
-      } else if (moonphase < 0.75){
-         return '🌖';
-      } else if (moonphase === 0.75){
-         return '🌗';
-      } else if (moonphase < 1.0){
-         return '🌘';
-      } else {
-         return '🌑'
-      }
-      
-   }
   return (
     <div className='List'>
 
@@ -72,7 +46,7 @@ const List = (props) => {
             <th>Test</th>
             <th>Temperature</th>
             <th>Time</th>
-            <th> Phase</th>
+            <th>Feels Like</th>
           </tr>
         </thead>
         <tbody>
@@ -83,9 +57,9 @@ const List = (props) => {
 
                 <tr key={'item-'+index}>
                   <td>{item.datetime}</td>
-                  <td>{item.feelslikemin + ' °F'}</td>
+                  <td>{item.temp + ' °F'}</td>
                   <td>{item.moonrise}</td>
-                  <td>{moonEmoji(item.moonphase)}</td>
+                  <td>{item.feelslikemin + ' °F'}</td>
                 </tr> 
               ) : <tr><td>{'No Data'}</td></tr>
           }

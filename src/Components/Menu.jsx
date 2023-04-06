@@ -9,21 +9,21 @@ const Menu = () => {
         <li className="Menu-item">
             <a className="menu-link" href="/">
                 <i className="menu-icon tf-icons bx bx-home-circle"></i>
-                <div>🏠  Dashboard</div>
+                <div>Dashboard</div>
             </a>
         </li>
 
         <li className="Menu-item">
             <a className="menu-link" href="/">
                 <i className="menu-icon tf-icons bx bx-home-circle"></i>
-                <div>🔍  Search</div>
+                <div>Search</div>
             </a>
         </li>
 
         <li className="Menu-item">
             <a className="menu-link" href="/">
                 <i className="menu-icon tf-icons bx bx-home-circle"></i>
-                <div>ℹ️ About</div>
+                <div>About</div>
             </a>
         </li>
 
