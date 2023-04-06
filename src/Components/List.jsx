@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react'
 import './List.css';
 
 const List = (props) => {
-
-  
   const [tableData, setTableData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 
@@ -16,42 +14,41 @@ const List = (props) => {
     setTableData(props.data);
     setFilteredData(props.data);
   }, [props]);
-
-
+  
+  
+  
   const handleSearch = () => {
-    const filterByDate = tableData.filter(item => item.datetime === (date === ''? item.datetime : date));
-    const filterByPhase = filterByDate.filter(item => parseFloat(item.moonphase) <= moonphase ) 
-    setFilteredData(filterByPhase);
-    
-  }
-
-
-  // Stretch Challenge: Additional Parsing
-  const moonEmoji = (moonphase) => {
-
-    if (moonphase === 0) {
-      return '🌑';
-    } else if (moonphase < 0.25){
-      return '🌒';
-    } else if (moonphase === 0.25){
-      return '🌓';
-    } else if (moonphase < 0.5){
-      return '🌔';
-    } else if (moonphase === 0.5){
-      return '🌕';
-    } else if (moonphase < 0.75){
-      return '🌖';
-    } else if (moonphase === 0.75){
-      return '🌗';
-    } else if (moonphase < 1.0){
-      return '🌘';
-    } else {
-      return '🌑'
-    }
-
-  }
-
-
+     const filterByDate = tableData.filter(item => item.datetime === (date === ''? item.datetime : date));
+     const filterByPhase = filterByDate.filter(item => parseFloat(item.moonphase) <= moonphase ) 
+     setFilteredData(filterByPhase);
+     
+   }
+   
+   
+   // Stretch Challenge: Additional Parsing
+   const moonEmoji = (moonphase) => {
+      
+      if (moonphase === 0) {
+         return '🌑';
+      } else if (moonphase < 0.25){
+         return '🌒';
+      } else if (moonphase === 0.25){
+         return '🌓';
+      } else if (moonphase < 0.5){
+         return '🌔';
+      } else if (moonphase === 0.5){
+         return '🌕';
+      } else if (moonphase < 0.75){
+         return '🌖';
+      } else if (moonphase === 0.75){
+         return '🌗';
+      } else if (moonphase < 1.0){
+         return '🌘';
+      } else {
+         return '🌑'
+      }
+      
+   }
   return (
     <div className='List'>
 
@@ -61,18 +58,18 @@ const List = (props) => {
           <input type='text' placeholder="Enter Date" onChange={(e) => setDate(e.target.value)}/>
         </div>
         <div className='phaseFilter'>
-          <label >Moon Phase:</label>
+          <label >Moon Bruh:</label>
           <input type="range" name="moonphase" onChange={(e) => setMoonphase(e.target.value)} min="0.0" max="1.0" step="0.1"></input>
         </div>
 
-        <button className ='btn' onClick={() => handleSearch()}>Search</button>
+        <button className ='btn' onClick={() => handleSearch()}>Beeeee</button>
       </div>
 
       <div className='table'>
       <table>
         <thead>
           <tr>
-            <th>Date</th>
+            <th>Test</th>
             <th>Temperature</th>
             <th>Time</th>
             <th> Phase</th>

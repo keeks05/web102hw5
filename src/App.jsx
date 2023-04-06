@@ -6,7 +6,6 @@ import Dashboard from './pages/Dashboard'
 
 
 const App = () => {
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -35,6 +34,7 @@ const App = () => {
 
   }, []);
 
+  console.log(data)
 
   return ( 
 
@@ -43,10 +43,7 @@ const App = () => {
         <Header />
         <Menu />
       </div>
-
       <Dashboard data={data}/>
-
-      
     </div>
 
   );
